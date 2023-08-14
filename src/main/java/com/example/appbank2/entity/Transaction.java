@@ -26,13 +26,9 @@ public class Transaction {
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    @ManyToOne
-    @JoinColumn(name = "debit_account_id")
-    private Account debitAccount;
+    @Column(name = "debit_account_id")
+    private Long debitAccountId;
 
-    @ManyToOne
-    @JoinColumn(name = "credit_account_id")
-    private Account creditAccount;
-
+    @Column(name = "credit_account_id")
+    private Long creditAccountId;
 }
-

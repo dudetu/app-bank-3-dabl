@@ -9,5 +9,6 @@ public interface AccountService {
     Account getAccountById(Long id);
     Account createAccount(Account account);
 
+    void updateAccount(Long id, Account update);
 }
 

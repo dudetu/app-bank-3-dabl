@@ -29,14 +29,9 @@ public class Agreement {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    @ManyToOne
-    @JoinColumn(name = "account_id")
-    private Account account;
+    @Column(name = "account_id")
+    private Long accountId;
 
-    @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
-
-
-
+    @Column(name = "product_id")
+    private Long productId;
 }

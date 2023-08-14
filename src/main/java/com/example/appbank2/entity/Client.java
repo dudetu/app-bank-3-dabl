@@ -35,14 +35,12 @@ public class Client {
     @Column(name = "last_name")
     private String lastName;
 
-
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    @ManyToOne
-    @JoinColumn(name = "manager_id")
-    private Manager manager;
+    @Column(name = "manager_id")
+    private Long managerId;
 }

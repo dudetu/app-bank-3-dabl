@@ -25,7 +25,7 @@ public class Product {
     @Column(name = "interest_rate")
     private BigDecimal interestRate;
 
-    @Column(name = "limit")
+    @Column(name = "´limit´")
     private BigDecimal limit;
 
     @Column(name = "created_at")
@@ -34,11 +34,6 @@ public class Product {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    @ManyToOne
-    @JoinColumn(name = "manager_id")
-    private Manager manager;
-
-
-
+    @Column(name = "manager_id")
+    private Long managerId;
 }
-
