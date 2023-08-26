@@ -4,9 +4,105 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
 
-    <!-- Пример ссылки на другой файл смены -->
-    <include file="db/changelog/changes/change1.xml"/>
-    <include file="db/changelog/changes/change2.xml"/>
-    <!-- ... Другие файлы смены ... -->
+    <!-- Ссылки на файлы смены для каждой таблицы -->
+    <include file="db/changelog/changes/create_account_table.xml"/>
+    <include file="db/changelog/changes/create_transaction_table.xml"/>
+    <include file="db/changelog/changes/create_client_table.xml"/>
+    <include file="db/changelog/changes/create_manager_table.xml"/>
+    <include file="db/changelog/changes/create_agreement_table.xml"/>
+    <include file="db/changelog/changes/create_product_table.xml"/>
+
+    <changeSet id="create_account_table" author="yourname">
+        <createTable tableName="Account">
+            <column name="id" type="binary(16)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="client_id" type="binary(16)"/>
+            <column name="name" type="varchar(100)"/>
+            <column name="type" type="integer"/>
+            <column name="status" type="integer"/>
+            <column name="balance" type="decimal(15,2)"/>
+            <column name="currency_code" type="integer"/>
+            <column name="created_at" type="timestamp"/>
+            <column name="updated_at" type="timestamp"/>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="create_transaction_table" author="yourname">
+        <createTable tableName="Transaktion">
+            <column name="id" type="binary(16)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="debit_account_id" type="binary(16)"/>
+            <column name="credit_account_id" type="binary(16)"/>
+            <column name="type" type="integer"/>
+            <column name="amount" type="decimal(12,4)"/>
+            <column name="description" type="varchar(255)"/>
+            <column name="created_at" type="timestamp"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create_client_table" author="yourname">
+        <createTable tableName="Client">
+            <column name="manager_id" type="binary(16)"/>
+            <column name="status" type="integer"/>
+            <column name="tax_code" type="varchar(20)"/>
+            <column name="first_name" type="varchar(50)"/>
+            <column name="last_name" type="varchar(50)"/>
+            <column name="email" type="varchar(60)"/>
+            <column name="address" type="archar(80)"/>
+            <column name="phone" type="archar(20)"/>
+            <column name="created_at" type="timestamp"/>
+            <column name="updated_at" type="timestamp"/>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="create_manager_table" author="yourname">
+        <createTable tableName="Manager">
+            <column name="id" type="integer">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="first_name" type="varchar(50)"/>
+            <column name="last_name" type="varchar(50)"/>
+            <column name="status" type="integer"/>
+            <column name="created_at" type="timestamp"/>
+            <column name="updated_at" type="timestamp"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create_agreement_table" author="yourname">
+        <createTable tableName="Agreement">
+            <column name="id" type="integer">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="account_id" type="binary(16)"/>
+            <column name="product_id" type="integer"/>
+            <column name="interest_rate" type="decimal(6,4)"/>
+            <column name="status" type="integer"/>
+            <column name="sum" type="decimal(15,2)"/>
+            <column name="created_at" type="timestamp"/>
+            <column name="updated_at" type="timestamp"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create_product_table" author="yourname">
+        <createTable tableName="Produkt">
+            <column name="id" type="integer">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="manager_id" type="integer"/>
+            <column name="name" type="varchar(70)"/>
+            <column name="status" type="integer"/>
+            <column name="currency_code" type="integer"/>
+            <column name="interest_rate" type="decimal(6,4)"/>
+            <column name="limit" type="integer"/>
+            <column name="created_at" type="timestamp"/>
+            <column name="updated_at" type="timestamp"/>
+        </createTable>
+    </changeSet>
+
+
 
 </databaseChangeLog>

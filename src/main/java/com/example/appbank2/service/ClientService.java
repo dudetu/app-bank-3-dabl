@@ -9,4 +9,5 @@ public interface ClientService {
     Client getClientById(Long id);
     Client createClient(Client client);
 
+    Object getAlL();
 }

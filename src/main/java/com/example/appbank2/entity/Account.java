@@ -5,6 +5,7 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Currency;
 
 @Entity
 @Table(name = "accounts")
@@ -13,6 +14,9 @@ public class Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Enumerated(EnumType.STRING)
+    private Currency currency;
+
     @Column(name = "id")
     private Long id;
 
@@ -24,6 +28,9 @@ public class Account {
 
     @Column(name = "status")
     private String status;
+
+    @Column(name = "emaile")
+    private String emaile;
 
     @Column(name = "balance")
     private BigDecimal balance;
@@ -37,6 +44,7 @@ public class Account {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    @Column(name = "client_id")
-    private Long clientId;
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    private Client client;
 }

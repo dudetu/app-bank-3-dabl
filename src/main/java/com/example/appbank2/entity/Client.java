@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 @Data
 public class Client {
 
+    public String getEmaile;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -41,6 +42,18 @@ public class Client {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    @Column(name = "manager_id")
-    private Long managerId;
+    @ManyToOne
+    @JoinColumn(name = "manager_id")
+    private Manager manager;
+
+    public Client(Object name, Object email) {
+    }
+
+    public Client() {
+        
+    }
+
+    public String getName() {
+        return null;
+    }
 }

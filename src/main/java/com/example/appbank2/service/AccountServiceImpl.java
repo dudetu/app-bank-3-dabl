@@ -26,7 +26,8 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public Account getAccountById(Long id) {
-        return accountRepository.findById(id).orElse(null);
+        return accountRepository.findById(id)
+                .orElseThrow(() -> new DataNotFoundException("account not found"));
     }
 
     @Override
@@ -53,7 +54,17 @@ public class AccountServiceImpl implements AccountService {
         if (update.getStatus() != null) {
             account.setStatus(update.getStatus());
         }
-        // ифы на каждое поле кроме ид и криетед-эт
+        if (update.getBalance() != null) {
+            account.setBalance(update.getBalance());
+        }
+
+        if (update.getCurrencyCode() != null) {
+            account.setCurrencyCode(update.getCurrencyCode());
+        }
+        if (update.getUpdatedAt() != null) {
+            account.setUpdatedAt(update.getUpdatedAt());
+        }
+        //TODO дописать ифы на каждое поле кроме ид и криетед-эт - СДЕЛАНО
         return account;
     }
 

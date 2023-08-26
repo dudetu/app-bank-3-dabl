@@ -1,4 +1,4 @@
-package com.example.appbank2.controller.exception_handler;
+package com.example.appbank2.exception;
 
 import com.example.appbank2.exception.DataNotFoundException;
 import lombok.extern.slf4j.Slf4j;
