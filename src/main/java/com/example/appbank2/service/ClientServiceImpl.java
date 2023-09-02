@@ -32,6 +32,11 @@ public class ClientServiceImpl implements ClientService {
         return clientRepository.save(client);
     }
 
+    @Override
+    public Object getAlL() {
+        return clientRepository.findAll();
+    }
+
 
 }
 

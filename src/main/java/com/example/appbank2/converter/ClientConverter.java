@@ -13,11 +13,8 @@ public interface ClientConverter {
 
     private ClientrDto toEntity(ClientCreateDto clientDto) { return null; }
 
-    private default Object toDto() {
+    private  Object toDto() {
         return toDto(null);
     }
 
-    private Object toDto(Object client) {
-        return null;
-    }
 }
