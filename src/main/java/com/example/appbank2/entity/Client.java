@@ -46,6 +46,7 @@ public class Client {
     @JoinColumn(name = "manager_id")
     private Manager manager;
 
+
     public Client(Object name, Object email) {
     }
 
@@ -54,6 +55,7 @@ public class Client {
     }
 
     public String getName() {
-        return null;
+        return this.firstName + this.lastName;
     }
+
 }

@@ -33,21 +33,24 @@ public class TransactionServiceImpl implements TransactionService {
         return transactionRepository.findById(id).orElse(null);
     }
 
+    /*
     @Override
     public Transaction createTransaction(Transaction transaction) {
         return transactionRepository.save(transaction);
     }
 
+
+     */
     @Override
     @Transactional
-    public void executeTransfer(Transaction transaction) {
+    public Transaction createTransaction(Transaction transaction) {
         BigDecimal amount = transaction.getAmount();
 
-        Long senderId = transaction.getDebitAccountId();
+        Long senderId = transaction.getSenderId();
         Account sender = accountService.getAccountById(senderId);
         BigDecimal balance = sender.getBalance();
 
-        Long recipientId = transaction.getCreditAccountId();
+        Long recipientId = transaction.getRecipientId();
         Account recipient = accountService.getAccountById(recipientId);
         BigDecimal recipientBalance = recipient.getBalance();
 
@@ -60,7 +63,7 @@ public class TransactionServiceImpl implements TransactionService {
         accountService.updateAccount(senderId, sender);
         accountService.updateAccount(recipientId, recipient);
 
-        transactionRepository.save(transaction);
+        return transactionRepository.save(transaction);
     }
 }
 

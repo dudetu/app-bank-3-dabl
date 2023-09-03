@@ -9,5 +9,5 @@ public interface TransactionService {
     Transaction getTransactionById(Long id);
     Transaction createTransaction(Transaction transaction);
 
-    void executeTransfer(Transaction transaction);
+    //void executeTransfer(Transaction transaction);
 }
