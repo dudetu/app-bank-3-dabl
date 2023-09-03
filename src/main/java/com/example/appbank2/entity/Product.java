@@ -22,11 +22,11 @@ public class Product {
     @Column(name = "currency_code")
     private String currencyCode;
 
-    @Column(name = "interest_rate")
+    @Column(name = "interest_rate", precision = 4, scale = 2)
     private BigDecimal interestRate;
 
-    @Column(name = "limit")
-    private BigDecimal limit;
+    @Column(name = "limits", precision = 12, scale = 2)
+    private BigDecimal limits;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;

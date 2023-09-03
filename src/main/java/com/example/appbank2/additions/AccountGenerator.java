@@ -1,10 +1,10 @@
-package com.example.appbank2.entity;
+package com.example.appbank2.additions;
 
 import java.util.Random;
 
 public class AccountGenerator {
-    private static final String BANK_ACCOUNT_REGEX = "\\d{10}"; // Regular expression for a 10-digit bank account number
-    private static final String CREDIT_CARD_REGEX = "\\d{16}"; // Regular expression for a 16-digit credit card number
+    private static final String BANK_ACCOUNT_REGEX = "\\d{10}"; // Регулярное выражение для 10-значного номера банковского счета
+    private static final String CREDIT_CARD_REGEX = "\\d{16}"; // Регулярное выражение для 16-значного номера кредитной карты
 
     private static final String VISA_PREFIX = "4";
     private static final String MASTERCARD_PREFIX = "5";
@@ -16,9 +16,9 @@ public class AccountGenerator {
     }
 
     /**
-     * Generate a random bank account number.
+     * Генерирует случайный номер банковского счета.
      *
-     * @return the generated bank account number
+     * @return сгенерированный номер банковского счета
      */
     public String generateBankAccountNumber() {
         StringBuilder builder = new StringBuilder();
@@ -32,10 +32,10 @@ public class AccountGenerator {
     }
 
     /**
-     * Generate a random credit card number.
+     * Генерирует случайный номер кредитной карты.
      *
-     * @param cardType the type of credit card (e.g., "visa", "mastercard")
-     * @return the generated credit card number
+     * @param cardType тип кредитной карты (например, "visa", "mastercard")
+     * @return сгенерированный номер кредитной карты
      */
     public String generateCreditCardNumber(String cardType) {
         StringBuilder builder = new StringBuilder();
@@ -59,10 +59,10 @@ public class AccountGenerator {
     }
 
     /**
-     * Generate a random bank account number that matches the specified regex pattern.
+     * Генерирует случайный номер банковского счета, соответствующий указанному регулярному выражению.
      *
-     * @param regexPattern the regex pattern for the bank account number
-     * @return the generated bank account number
+     * @param regexPattern регулярное выражение для номера банковского счета
+     * @return сгенерированный номер банковского счета
      */
     public String generateCustomBankAccountNumber(String regexPattern) {
         String generatedNumber = generateBankAccountNumber();
@@ -75,11 +75,11 @@ public class AccountGenerator {
     }
 
     /**
-     * Generate a random credit card number that matches the specified regex pattern.
+     * Генерирует случайный номер кредитной карты, соответствующий указанному регулярному выражению.
      *
-     * @param regexPattern the regex pattern for the credit card number
-     * @param cardType     the type of credit card (e.g., "visa", "mastercard")
-     * @return the generated credit card number
+     * @param regexPattern регулярное выражение для номера кредитной карты
+     * @param cardType     тип кредитной карты (например, "visa", "mastercard")
+     * @return сгенерированный номер кредитной карты
      */
     public String generateCustomCreditCardNumber(String regexPattern, String cardType) {
         String generatedNumber = generateCreditCardNumber(cardType);
@@ -94,9 +94,9 @@ public class AccountGenerator {
     public static void main(String[] args) {
         AccountGenerator accountGenerator = new AccountGenerator();
 
-        for (int i = 0; i < 1         ; i++) {
-            String Account = accountGenerator.generateAccount();
-            System.out.println(" Account Number: " + Account);
+        for (int i = 0; i < 10; i++) {
+            String bankAccountNumber = accountGenerator.generateBankAccountNumber();
+            System.out.println("Bank Account Number: " + bankAccountNumber);
 
             String visaCardNumber = accountGenerator.generateCreditCardNumber("visa");
             System.out.println("Visa Card Number: " + visaCardNumber);
@@ -104,13 +104,6 @@ public class AccountGenerator {
             String mastercardNumber = accountGenerator.generateCreditCardNumber("mastercard");
             System.out.println("Mastercard Number: " + mastercardNumber);
         }
-
-
-    }
-
-    private String generateAccount() {
-
-        return null;
     }
 }
 

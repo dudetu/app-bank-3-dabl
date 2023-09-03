@@ -17,10 +17,10 @@ public class Agreement {
     @Column(name = "status")
     private String status;
 
-    @Column(name = "sum")
+    @Column(name = "sum", precision = 15, scale = 2)
     private BigDecimal sum;
 
-    @Column(name = "interest_rate")
+    @Column(name = "interest_rate", precision = 4, scale = 2)
     private BigDecimal interestRate;
 
     @Column(name = "created_at")

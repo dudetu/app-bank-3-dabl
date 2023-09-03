@@ -17,7 +17,7 @@ public class Transaction {
     @Column(name = "type")
     private String type;
 
-    @Column(name = "amout")
+    @Column(name = "amount")
     private BigDecimal amount;
 
     @Column(name = "description")

@@ -1,14 +1,13 @@
 package com.example.appbank2.controller;
 import com.example.appbank2.entity.Account;
 import com.example.appbank2.service.AccountService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-//@RequiredArgsConstructor
+
 @RestController
 @RequestMapping("/api/accounts")
 public class AccountController {
@@ -20,7 +19,7 @@ public class AccountController {
        this.accountService = accountService;
    }
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<Account>> getAllAccounts() {
         List<Account> accounts = accountService.getAllAccounts();
         return new ResponseEntity<>(accounts, HttpStatus.OK);

@@ -1,5 +1,7 @@
 package com.example.appbank2.entity;
 
+
+import com.example.appbank2.entity.Client;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -14,9 +16,6 @@ public class Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Enumerated(EnumType.STRING)
-    private Currency currency;
-
     @Column(name = "id")
     private Long id;
 
@@ -29,8 +28,8 @@ public class Account {
     @Column(name = "status")
     private String status;
 
-    @Column(name = "emaile")
-    private String emaile;
+    @Column(name = "email")
+    private String email;
 
     @Column(name = "balance")
     private BigDecimal balance;
@@ -47,4 +46,10 @@ public class Account {
     @ManyToOne
     @JoinColumn(name = "client_id")
     private Client client;
+
+  //  @Column(name = "currency")
+  //  @Enumerated(EnumType.STRING)
+  //  private Currency currency;
+
+
 }
