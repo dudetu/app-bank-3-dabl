@@ -28,11 +28,11 @@ public class AccountController {
     @GetMapping("/{id}")
     public ResponseEntity<Account> getAccountById(@PathVariable Long id) {
         Account account = accountService.getAccountById(id);
-        if (account != null) {
-            return new ResponseEntity<>(account, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        if (account != null) { return new ResponseEntity<>(account, HttpStatus.OK);
         }
+        else { return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
     }
 
     @PostMapping( value = "/create")
@@ -43,4 +43,6 @@ public class AccountController {
 
 
 }
+
+
 
