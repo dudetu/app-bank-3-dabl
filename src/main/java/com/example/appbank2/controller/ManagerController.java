@@ -20,7 +20,7 @@ public class ManagerController {
         this.managerService = managerService;
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<Manager>> getAllManagers() {
         List<Manager> managers = managerService.getAllManagers();
         return new ResponseEntity<>(managers, HttpStatus.OK);

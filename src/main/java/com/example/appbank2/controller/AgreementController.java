@@ -20,7 +20,7 @@ public class AgreementController {
         this.agreementService = agreementService;
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<Agreement>> getAllAgreements() {
         List<Agreement> agreements = agreementService.getAllAgreements();
         return new ResponseEntity<>(agreements, HttpStatus.OK);
@@ -36,7 +36,7 @@ public class AgreementController {
         }
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<Agreement> createAgreement(@RequestBody Agreement agreement) {
         Agreement createdAgreement = agreementService.createAgreement(agreement);
         return new ResponseEntity<>(createdAgreement, HttpStatus.CREATED);

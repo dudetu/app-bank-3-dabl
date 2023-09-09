@@ -1,5 +1,6 @@
 package com.example.appbank2.controller;
 
+import com.example.appbank2.dto.ClientDto;
 import com.example.appbank2.entity.Client;
 import com.example.appbank2.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,25 +22,25 @@ public class ClientController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<Client>> getAllClients() {
-        List<Client> clients = clientService.getAllClients();
-        return new ResponseEntity<>(clients, HttpStatus.OK);
+    public ResponseEntity<List<ClientDto>> getAllClients() {
+        List<ClientDto> clients = clientService.getAllClientDTO();
+        return ResponseEntity.ok(clients);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Client> getClientById(@PathVariable Long id) {
-        Client client = clientService.getClientById(id);
+    public ResponseEntity<ClientDto> getClientById(@PathVariable Long id) {
+        ClientDto client = clientService.getClientDtoById(id);
         if (client != null) {
-            return new ResponseEntity<>(client, HttpStatus.OK);
+            return ResponseEntity.ok(client);
         } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return ResponseEntity.notFound().build();
         }
     }
 
     @PostMapping("/create")
-    public ResponseEntity<Client> createClient(@RequestBody Client client) {
-        Client createdClient = clientService.createClient(client);
-        return new ResponseEntity<>(createdClient, HttpStatus.CREATED);
+    public ResponseEntity<String> createClient(@RequestBody ClientDto clientDto) {
+        clientService.create(clientDto);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
 

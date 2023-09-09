@@ -42,12 +42,3 @@ public class TransactionController {
         return new ResponseEntity<>(createdTransaction, HttpStatus.CREATED);
     }
 }
-
-
-
-
-
-    //TODO написать ендпоинт для операции превода средств - сделано
-
-
-
