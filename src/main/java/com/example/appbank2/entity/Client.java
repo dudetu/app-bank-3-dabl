@@ -1,8 +1,10 @@
 package com.example.appbank2.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "clients")
@@ -10,7 +12,6 @@ import java.time.LocalDateTime;
 public class Client {
 
 
-    public String getEmaile;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -43,20 +44,5 @@ public class Client {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    @ManyToOne
-    @JoinColumn(name = "manager_id")
-    private Manager manager;
-
-
-    public Client(Object name, Object email) {
-    }
-
-    public Client() {
-        
-    }
-
-    public String getName() {
-        return this.firstName + this.lastName;
-    }
 
 }

@@ -1,19 +1,13 @@
 package com.example.appbank2.controller;
 
-import com.example.appbank2.converter.ClientConverterimpl;
-import com.example.appbank2.dto.ClientCreateDto;
-import com.example.appbank2.dto.ClientrDto;
 import com.example.appbank2.entity.Client;
 import com.example.appbank2.service.ClientService;
-import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api/clients")

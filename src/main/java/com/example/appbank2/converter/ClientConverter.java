@@ -1,20 +1,12 @@
 package com.example.appbank2.converter;
 
-import com.example.appbank2.dto.ClientCreateDto;
-import com.example.appbank2.dto.ClientrDto;
+import com.example.appbank2.dto.ClientDto;
+import com.example.appbank2.entity.Client;
 
 public interface ClientConverter {
 
+    ClientDto entityToDto(Client client);
 
-   private ClientrDto toDto(Object client) {
-        return null;
-
-    }
-
-    private ClientrDto toEntity(ClientCreateDto clientDto) { return null; }
-
-    private  Object toDto() {
-        return toDto(null);
-    }
+    Client dtoToEntity(ClientDto clientDto);
 
 }

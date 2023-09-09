@@ -30,24 +30,9 @@ public class Transaction {
     @Column(name = "recipient_id")
     private Long recipientId;
 
-
-    /*
-    @ManyToOne
-    @JoinColumn(name = "debit_account_id")
-    private Account debitAccount;
-
-    @ManyToOne
-    @JoinColumn(name = "credit_account_id")
-    private Account creditAccount;
-
-    deb -> deb
-    deb -> cred
-
-    cred -> deb
-    cred -> cred ?
-     */
     @CreationTimestamp
     @Column(name = "created_at")
     private LocalDateTime createdAt;
+    
 }
 

@@ -43,13 +43,9 @@ public class Account {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    @ManyToOne
-    @JoinColumn(name = "client_id")
-    private Client client;
-
-  //  @Column(name = "currency")
-  //  @Enumerated(EnumType.STRING)
-  //  private Currency currency;
+ //   @Column(name = "currency")
+//    @Enumerated(EnumType.STRING)
+//  private Currency currency;
 
 
 }
