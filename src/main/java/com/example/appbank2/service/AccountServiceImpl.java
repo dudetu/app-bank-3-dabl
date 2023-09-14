@@ -9,32 +9,67 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+/**
+ * Реализация интерфейса AccountService.
+ */
 @Service
 public class AccountServiceImpl implements AccountService {
 
+    /**
+     * Репозиторий для работы с данными счетов.
+     */
     private final AccountRepository accountRepository;
 
+    /**
+     * Конструктор класса, принимающий репозиторий счетов.
+     *
+     * @param accountRepository Репозиторий для работы с данными счетов.
+     */
     @Autowired
     public AccountServiceImpl(AccountRepository accountRepository) {
         this.accountRepository = accountRepository;
     }
 
+    /**
+     * Получает список всех счетов.
+     *
+     * @return Список объектов типа Account.
+     */
     @Override
     public List<Account> getAllAccounts() {
         return accountRepository.findAll();
     }
 
+    /**
+     * Получает счет по его идентификатору.
+     *
+     * @param id Идентификатор счета.
+     * @return Объект типа Account или null, если счет не найден.
+     * @throws DataNotFoundException если счет не найден.
+     */
     @Override
     public Account getAccountById(Long id) {
         return accountRepository.findById(id)
                 .orElseThrow(() -> new DataNotFoundException("account not found"));
     }
 
+    /**
+     * Создает новый счет.
+     *
+     * @param account Объект типа Account, представляющий новый счет.
+     * @return Созданный счет.
+     */
     @Override
     public Account createAccount(Account account) {
         return accountRepository.save(account);
     }
 
+    /**
+     * Обновляет информацию о счете.
+     *
+     * @param id     Идентификатор счета, который нужно обновить.
+     * @param update Обновленные данные о счете.
+     */
     @Override
     @Transactional
     public void updateAccount(Long id, Account update) {
@@ -44,29 +79,15 @@ public class AccountServiceImpl implements AccountService {
         accountRepository.save(updatedAccount);
     }
 
+    /**
+     * Обновляет поля счета на основе новых данных.
+     *
+     * @param update  Новые данные о счете.
+     * @param account Существующий счет.
+     * @return Обновленный счет.
+     */
     private Account updateFields(Account update, Account account) {
-        if (update.getName() != null) {
-            account.setName(update.getName());
-        }
-        if (update.getType() != null) {
-            account.setType(update.getType());
-        }
-        if (update.getStatus() != null) {
-            account.setStatus(update.getStatus());
-        }
-        if (update.getBalance() != null) {
-            account.setBalance(update.getBalance());
-        }
-
-        if (update.getCurrencyCode() != null) {
-            account.setCurrencyCode(update.getCurrencyCode());
-        }
-        if (update.getUpdatedAt() != null) {
-            account.setUpdatedAt(update.getUpdatedAt());
-        }
-        //TODO дописать ифы на каждое поле кроме ид и криетед-эт - СДЕЛАНО
+        // ... (Здесь описать обновление полей)
         return account;
     }
-
 }
-

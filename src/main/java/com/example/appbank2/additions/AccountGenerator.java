@@ -23,7 +23,7 @@ public class AccountGenerator {
     public String generateBankAccountNumber() {
         StringBuilder builder = new StringBuilder();
 
-        while (builder.length() < 10) {
+        while (builder.length() < 16) {
             int digit = random.nextInt(10);
             builder.append(digit);
         }
@@ -94,7 +94,7 @@ public class AccountGenerator {
     public static void main(String[] args) {
         AccountGenerator accountGenerator = new AccountGenerator();
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 1; i++) {
             String bankAccountNumber = accountGenerator.generateBankAccountNumber();
             System.out.println("Bank Account Number: " + bankAccountNumber);
 

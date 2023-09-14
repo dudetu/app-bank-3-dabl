@@ -20,12 +20,23 @@ public class ProductController {
         this.productService = productService;
     }
 
+    /**
+     * Получить список всех продуктов.
+     *
+     * @return ResponseEntity со списком продуктов и статусом HTTP
+     */
     @GetMapping("/all")
     public ResponseEntity<List<Product>> getAllProducts() {
         List<Product> products = productService.getAllProducts();
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
 
+    /**
+     * Получить продукт по его идентификатору.
+     *
+     * @param id Идентификатор продукта
+     * @return ResponseEntity с продуктом и статусом HTTP
+     */
     @GetMapping("/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable Long id) {
         Product product = productService.getProductById(id);
@@ -36,12 +47,15 @@ public class ProductController {
         }
     }
 
+    /**
+     * Создать новый продукт.
+     *
+     * @param product Новый продукт
+     * @return ResponseEntity с созданным продуктом и статусом HTTP
+     */
     @PostMapping("/create")
     public ResponseEntity<Product> createProduct(@RequestBody Product product) {
         Product createdProduct = productService.createProduct(product);
         return new ResponseEntity<>(createdProduct, HttpStatus.CREATED);
     }
-
-
 }
-

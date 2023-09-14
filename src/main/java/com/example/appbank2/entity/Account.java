@@ -1,7 +1,6 @@
 package com.example.appbank2.entity;
 
-
-import com.example.appbank2.entity.Client;
+import com.example.appbank2.enums.Currency;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
@@ -9,7 +8,10 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.Currency;
+
+/**
+ * Класс представляет сущность "Счет" в базе данных.
+ */
 
 @Entity
 @Table(name = "accounts")
@@ -47,9 +49,9 @@ public class Account {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
- //   @Column(name = "currency")
-//    @Enumerated(EnumType.STRING)
-//  private Currency currency;
+    @Column(name = "currency")
+    @Enumerated(EnumType.STRING)
+    private Currency currency;
 
 
 }

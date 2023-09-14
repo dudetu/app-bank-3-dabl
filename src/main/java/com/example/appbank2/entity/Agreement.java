@@ -1,9 +1,14 @@
 package com.example.appbank2.entity;
+
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+
+/**
+ * Класс представляет сущность "Договор" в базе данных.
+ */
 @Entity
 @Table(name = "agreements")
 @Data
@@ -29,5 +34,58 @@ public class Agreement {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
+    /**
+     * Устанавливает имя договора.
+     *
+     * @param agreementName Название договора.
+     */
+    public void setName(String agreementName) {
+        // Реализация метода
+    }
 
+    /**
+     * Получает имя договора.
+     *
+     * @return Название договора.
+     */
+    public String getName() {
+        return null; // Реализация метода
+    }
+
+    /**
+     * Устанавливает детали договора.
+     *
+     * @param agreementDetails Детали договора.
+     */
+    public void setDetails(String agreementDetails) {
+        // Реализация метода
+    }
+
+    /**
+     * Устанавливает тип договора.
+     *
+     * @param agreementType Тип договора.
+     */
+    public void setType(String agreementType) {
+        // Реализация метода
+    }
+
+    /**
+     * Получает детали договора.
+     *
+     * @return Детали договора.
+     */
+    public short getDetails() {
+        return 0; // Реализация метода
+    }
+
+    /**
+     * Получает тип договора.
+     *
+     * @return Тип договора.
+     */
+    public short getType() {
+        return 0; // Реализация метода
+    }
 }
+

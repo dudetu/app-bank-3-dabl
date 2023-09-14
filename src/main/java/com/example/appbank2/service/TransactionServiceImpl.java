@@ -11,12 +11,26 @@ import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 import java.util.List;
 
+import com.example.appbank2.entity.Transaction;
+
+import java.math.BigDecimal;
+import java.util.List;
+
+/**
+ * Реализация интерфейса TransactionService для работы с транзакциями.
+ */
 @Service
 public class TransactionServiceImpl implements TransactionService {
 
     private final TransactionRepository transactionRepository;
     private final AccountService accountService;
 
+    /**
+     * Конструктор с внедрением зависимостей.
+     *
+     * @param transactionRepository Репозиторий транзакций.
+     * @param accountService        Сервис управления счетами.
+     */
     @Autowired
     public TransactionServiceImpl(TransactionRepository transactionRepository, AccountService accountService) {
         this.transactionRepository = transactionRepository;
@@ -33,13 +47,12 @@ public class TransactionServiceImpl implements TransactionService {
         return transactionRepository.findById(id).orElse(null);
     }
 
-    /*
-    @Override
-    public Transaction createTransaction(Transaction transaction) {
-        return transactionRepository.save(transaction);
-    }
-
-
+    /**
+     * Создать новую транзакцию с учетом списания средств и их зачисления.
+     *
+     * @param transaction Объект Transaction, который будет создан.
+     * @return Созданный объект Transaction.
+     * @throws LowBalanceException Если баланс отправителя недостаточен для проведения транзакции.
      */
     @Override
     @Transactional
@@ -66,4 +79,3 @@ public class TransactionServiceImpl implements TransactionService {
         return transactionRepository.save(transaction);
     }
 }
-

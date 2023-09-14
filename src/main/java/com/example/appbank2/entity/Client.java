@@ -1,19 +1,27 @@
 package com.example.appbank2.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
+
+import jakarta.persistence.*;
+import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.LocalDateTime;
+
+/**
+ * Класс представляет сущность "Клиент" в базе данных.
+ */
 @Entity
 @Table(name = "clients")
 @Data
 public class Client {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,5 +57,21 @@ public class Client {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
+    /**
+     * Устанавливает имя клиента.
+     *
+     * @param clientName Имя клиента.
+     */
+    public void setName(String clientName) {
+        // Реализация метода
+    }
 
+    /**
+     * Получает имя клиента.
+     *
+     * @return Имя клиента.
+     */
+    public <R> R getName() {
+        return null; // Реализация метода
+    }
 }

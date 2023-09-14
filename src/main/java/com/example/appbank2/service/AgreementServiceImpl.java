@@ -7,6 +7,9 @@ import com.example.appbank2.repository.AgreementRepository;
 
 import java.util.List;
 
+/**
+ * Реализация интерфейса AgreementService для работы с договорами.
+ */
 @Service
 public class AgreementServiceImpl implements AgreementService {
 
@@ -17,21 +20,27 @@ public class AgreementServiceImpl implements AgreementService {
         this.agreementRepository = agreementRepository;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Agreement> getAllAgreements() {
         return agreementRepository.findAll();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Agreement getAgreementById(Long id) {
         return agreementRepository.findById(id).orElse(null);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Agreement createAgreement(Agreement agreement) {
         return agreementRepository.save(agreement);
     }
-
-
 }
-
